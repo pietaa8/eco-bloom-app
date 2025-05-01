@@ -4,7 +4,7 @@ import '../data/product_data.dart';
 import '../models/product_model.dart';
 import '../pages/product_details_page.dart';
 import '../providers/cart_provider.dart';
-import '../pages/blog_page.dart'; // Ensure this exists
+import '../pages/blog_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -120,10 +120,15 @@ class HomePage extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: const BorderRadius.vertical(
                             top: Radius.circular(12)),
-                        child: Image.asset(
-                          product.image,
-                          fit: BoxFit.cover,
-                          width: double.infinity,
+                        child: Container(
+                          color: Colors.white,
+                          padding: const EdgeInsets.all(6),
+                          child: Image.asset(
+                            product.image,
+                            fit: BoxFit.contain,
+                            width: double.infinity,
+                            height: 100,
+                          ),
                         ),
                       ),
                     ),
