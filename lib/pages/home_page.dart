@@ -12,14 +12,25 @@ class HomePage extends StatelessWidget {
     final cart = Provider.of<CartProvider>(context);
 
     return Scaffold(
+      backgroundColor:
+          Color.fromARGB(255, 179, 237, 189), // Light garden background
       appBar: AppBar(
-        title: const Text('EcoBloom'),
+        backgroundColor: const Color(0xFF4CAF50),
+        title: const Text(
+          'EcoBloom',
+          style: TextStyle(
+            fontFamily: 'Georgia',
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
         actions: [
           Stack(
             alignment: Alignment.topRight,
             children: [
               IconButton(
-                icon: const Icon(Icons.shopping_cart),
+                icon: const Icon(Icons.shopping_cart, color: Colors.white),
                 onPressed: () {
                   Navigator.pushNamed(context, '/cart');
                 },
@@ -51,24 +62,29 @@ class HomePage extends StatelessWidget {
         ],
       ),
       drawer: Drawer(
+        backgroundColor: const Color(0xFFE8F5E9),
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.green,
+                color: Color(0xFF388E3C),
               ),
               child: Text(
                 'EcoBloom Menu',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
+                  fontFamily: 'Georgia',
                 ),
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.article),
-              title: const Text('Blog'),
+              leading: const Icon(Icons.article, color: Colors.green),
+              title: const Text(
+                'Blog',
+                style: TextStyle(fontSize: 16, fontFamily: 'Georgia'),
+              ),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
@@ -81,14 +97,14 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(10.0),
         child: GridView.builder(
           itemCount: ecoProducts.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-            childAspectRatio: 0.65,
+            mainAxisSpacing: 15,
+            crossAxisSpacing: 15,
+            childAspectRatio: 0.7,
           ),
           itemBuilder: (context, index) {
             final product = ecoProducts[index];
@@ -104,12 +120,12 @@ class HomePage extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 4,
-                      offset: Offset(2, 2),
+                      color: Colors.green.withOpacity(0.1),
+                      blurRadius: 8,
+                      offset: Offset(2, 4),
                     ),
                   ],
                 ),
@@ -119,7 +135,7 @@ class HomePage extends StatelessWidget {
                     Expanded(
                       child: ClipRRect(
                         borderRadius: const BorderRadius.vertical(
-                            top: Radius.circular(12)),
+                            top: Radius.circular(16)),
                         child: Container(
                           color: Colors.white,
                           padding: const EdgeInsets.all(6),
@@ -133,22 +149,38 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(6.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 6),
                       child: Column(
                         children: [
                           Text(
                             product.name,
                             style: const TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 13),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                              fontFamily: 'Georgia',
+                            ),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(height: 4),
-                          Text('\$${product.price}',
-                              style: const TextStyle(fontSize: 12)),
-                          Text('Eco: ${product.ecoScore}/10',
-                              style: const TextStyle(fontSize: 11)),
+                          Text(
+                            '৳${product.price}',
+                            style: const TextStyle(
+                              fontSize: 13,
+                              color: Color.fromARGB(255, 1, 200, 31),
+                              fontFamily: 'Georgia',
+                            ),
+                          ),
+                          Text(
+                            'Eco: ${product.ecoScore}/10',
+                            style: const TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Georgia',
+                              color: Color.fromARGB(255, 238, 114, 114),
+                            ),
+                          ),
                         ],
                       ),
                     ),

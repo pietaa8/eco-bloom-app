@@ -11,14 +11,6 @@ final List<Product> ecoProducts = [
         'Sustainable bamboo handle trowel and spade for eco gardening.',
   ),
   Product(
-    id: 'p2',
-    name: 'Indoor Compost Bin',
-    image: 'assets/images/compost_bin.jpg',
-    price: 24.99,
-    ecoScore: 10,
-    description: 'Odor-free indoor compost bin with biodegradable liners.',
-  ),
-  Product(
     id: 'p3',
     name: 'Rainwater Barrel',
     image: 'assets/images/rain_barrel.jpg',
@@ -26,6 +18,14 @@ final List<Product> ecoProducts = [
     ecoScore: 8,
     description:
         'Collect and reuse rainwater with this durable recycled plastic barrel.',
+  ),
+  Product(
+    id: 'p6',
+    name: 'Neem Oil Spray',
+    image: 'assets/images/neem_spray.jpg',
+    price: 11.99,
+    ecoScore: 9,
+    description: 'Organic pest control solution safe for pets and plants.',
   ),
   Product(
     id: 'p4',
@@ -44,14 +44,6 @@ final List<Product> ecoProducts = [
     description: 'Breathable grow bags made from 100% recycled PET bottles.',
   ),
   Product(
-    id: 'p6',
-    name: 'Neem Oil Spray',
-    image: 'assets/images/neem_spray.jpg',
-    price: 11.99,
-    ecoScore: 9,
-    description: 'Organic pest control solution safe for pets and plants.',
-  ),
-  Product(
     id: 'p7',
     name: 'Drip Irrigation Kit',
     image: 'assets/images/drip_kit.jpg',
@@ -66,6 +58,14 @@ final List<Product> ecoProducts = [
     price: 6.99,
     ecoScore: 9,
     description: 'Eco trays that break down naturally in soil after planting.',
+  ),
+  Product(
+    id: 'p2',
+    name: 'Indoor Compost Bin',
+    image: 'assets/images/compost_bin.jpg',
+    price: 24.99,
+    ecoScore: 10,
+    description: 'Odor-free indoor compost bin with biodegradable liners.',
   ),
   Product(
     id: 'p9',
