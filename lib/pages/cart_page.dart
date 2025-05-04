@@ -21,24 +21,43 @@ class CartPage extends StatelessWidget {
           : ListView.builder(
               itemCount: cart.items.length,
               itemBuilder: (context, index) {
-                final product = cart.items[index];
+                final cartItem = cart.items[index];
                 return Card(
                   margin:
                       const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   child: ListTile(
                     leading: Image.asset(
-                      product.image,
+                      cartItem.product.image,
                       width: 50,
                       height: 50,
                       fit: BoxFit.cover,
                     ),
-                    title: Text(product.name),
-                    subtitle: Text('\$${product.price}'),
-                    trailing: IconButton(
-                      icon: const Icon(Icons.remove_circle, color: Colors.red),
-                      onPressed: () {
-                        cart.removeFromCart(product);
-                      },
+                    title: Text(cartItem.product.name),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('\$${cartItem.product.price.toStringAsFixed(2)}'),
+                        Row(
+                          children: [
+                            IconButton(
+                              icon: const Icon(Icons.remove_circle,
+                                  color: Colors.red),
+                              onPressed: () {
+                                cart.removeOneFromCart(cartItem.product);
+                              },
+                            ),
+                            Text('${cartItem.quantity}',
+                                style: const TextStyle(fontSize: 16)),
+                            IconButton(
+                              icon: const Icon(Icons.add_circle,
+                                  color: Colors.green),
+                              onPressed: () {
+                                cart.addToCart(cartItem.product);
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 );
@@ -49,9 +68,10 @@ class CartPage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
                 onPressed: () {
-                  // Later: Proceed to checkout
+                  // Proceed to checkout logic here
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Checkout not implemented yet')),
+                    const SnackBar(
+                        content: Text('Checkout not implemented yet')),
                   );
                 },
                 style: ElevatedButton.styleFrom(
