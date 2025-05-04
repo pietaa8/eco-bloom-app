@@ -84,7 +84,7 @@ class HomePage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.account_circle, color: Colors.green),
-              title: const Text('My Account',
+              title: const Text(' Account',
                   style: TextStyle(fontSize: 16, fontFamily: 'Georgia')),
               onTap: () {
                 Navigator.pop(context);
