@@ -9,7 +9,6 @@ import '../pages/about_us.dart';
 import '../pages/account_page.dart';
 import '../pages/log_in.dart';
 import '../pages/sign_up.dart';
-import '../pages/settings_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -121,16 +120,6 @@ class HomePage extends StatelessWidget {
                 Navigator.pop(context);
                 Navigator.push(
                     context, MaterialPageRoute(builder: (_) => SignUpPage()));
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings, color: Colors.green),
-              title: const Text('Settings',
-                  style: TextStyle(fontSize: 16, fontFamily: 'Georgia')),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => SettingsPage()));
               },
             ),
             ListTile(
