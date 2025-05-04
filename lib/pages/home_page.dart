@@ -5,6 +5,11 @@ import '../models/product_model.dart';
 import '../pages/product_details_page.dart';
 import '../providers/cart_provider.dart';
 import '../pages/blog_page.dart';
+import '../pages/about_us.dart';
+import '../pages/account_page.dart';
+import '../pages/log_in.dart';
+import '../pages/sign_up.dart';
+import '../pages/settings_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -12,8 +17,7 @@ class HomePage extends StatelessWidget {
     final cart = Provider.of<CartProvider>(context);
 
     return Scaffold(
-      backgroundColor:
-          Color.fromARGB(255, 179, 237, 189), // Light garden background
+      backgroundColor: const Color.fromARGB(255, 179, 237, 189),
       appBar: AppBar(
         backgroundColor: const Color(0xFF4CAF50),
         title: const Text(
@@ -80,17 +84,63 @@ class HomePage extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.article, color: Colors.green),
-              title: const Text(
-                'Blog',
-                style: TextStyle(fontSize: 16, fontFamily: 'Georgia'),
-              ),
+              leading: const Icon(Icons.account_circle, color: Colors.green),
+              title: const Text('My Account',
+                  style: TextStyle(fontSize: 16, fontFamily: 'Georgia')),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => BlogPage()),
-                );
+                    context, MaterialPageRoute(builder: (_) => AccountPage()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.article, color: Colors.green),
+              title: const Text('Blog',
+                  style: TextStyle(fontSize: 16, fontFamily: 'Georgia')),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => BlogPage()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.login, color: Colors.green),
+              title: const Text('Login',
+                  style: TextStyle(fontSize: 16, fontFamily: 'Georgia')),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => LogInPage()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.person_add, color: Colors.green),
+              title: const Text('Sign Up',
+                  style: TextStyle(fontSize: 16, fontFamily: 'Georgia')),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => SignUpPage()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings, color: Colors.green),
+              title: const Text('Settings',
+                  style: TextStyle(fontSize: 16, fontFamily: 'Georgia')),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => SettingsPage()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.info_outline, color: Colors.green),
+              title: const Text('About Us',
+                  style: TextStyle(fontSize: 16, fontFamily: 'Georgia')),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => AboutUsPage()));
               },
             ),
           ],
